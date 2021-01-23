@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DndMassCombat.Models;
+using DndMassCombat.Models.Simulation;
 
 namespace DndMassCombat.Controllers
 {
@@ -23,7 +24,9 @@ namespace DndMassCombat.Controllers
             return View();
         }
         
-        public void Simulate()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public void Simulate(GroupViewModel from, GroupViewModel to)
         {
             // return View();
         }
