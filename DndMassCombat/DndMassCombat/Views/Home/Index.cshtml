@@ -72,6 +72,18 @@
         </div>
 
         <div class="row">
+                    <div class="col form-group">
+                        @Html.LabelFor(model => model.Group1.DamageBonus, new {@class = "col-sm-4"})
+                        @Html.EditorFor(model => model.Group1.DamageBonus, new {@class = "form-control"})
+                    </div>
+                    <div class="col-sm-2"></div>
+                    <div class="col form-group">
+                        @Html.LabelFor(model => model.Group2.DamageBonus, new {@class = "col-sm-4"})
+                        @Html.EditorFor(model => model.Group2.DamageBonus, new {@class = "form-control"})
+                    </div>
+        </div>
+        
+        <div class="row">
             <div class="col form-group">
                 @Html.LabelFor(model => model.Group1.Damage, new {@class = "col-sm-4"})
                 <select asp-for="Group1.Damage" asp-items="Html.GetEnumSelectList<Damage>()"></select>
@@ -84,24 +96,12 @@
         </div>
 
         <div class="row">
-            <div class="col form-group">
-                @Html.LabelFor(model => model.Group1.DamageBonus, new {@class = "col-sm-4"})
-                @Html.EditorFor(model => model.Group1.DamageBonus, new {@class = "form-control"})
+            <div class="col text-center">
+                <button type="submit" class="btn btn-primary text-center">Attack 2nd group</button>
             </div>
             <div class="col-sm-2"></div>
-            <div class="col form-group">
-                @Html.LabelFor(model => model.Group2.DamageBonus, new {@class = "col-sm-4"})
-                @Html.EditorFor(model => model.Group2.DamageBonus, new {@class = "form-control"})
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <button type="submit" class="btn btn-primary" value="Attack =>"></button>
-            </div>
-            <div class="col-sm-2"></div>
-            <div class="col">
-                <button type="submit" class="btn btn-primary" value="<= Attack"></button>
+            <div class="col text-center">
+                <button type="submit" class="btn btn-primary text-center" Text="<= Attack">Attack 1st group</button>
             </div>
         </div>
 

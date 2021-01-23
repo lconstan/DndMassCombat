@@ -4,7 +4,7 @@
     <projectFile>DndMassCombat/DndMassCombat.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e49f80b5-5550-4729-8655-280717fee88e" name="Default Changelist" comment="change page title" />
+    <list default="true" id="e49f80b5-5550-4729-8655-280717fee88e" name="Default Changelist" comment="Add damage bonus + change display name" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,9 +14,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://D:/repos/DndMassCombat/DndMassCombat/DndMassCombat/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/repos/DndMassCombat/DndMassCombat/DndMassCombat/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/repos/DndMassCombat/DndMassCombat/DndMassCombat/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/repos/DndMassCombat/DndMassCombat/DndMassCombat/Models/Simulation/GroupViewModel.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -94,6 +92,7 @@
       <option name="presentableId" value="Default" />
       <updated>1611417632926</updated>
       <workItem from="1611417643465" duration="6157000" />
+      <workItem from="1611426732673" duration="309000" />
     </task>
     <task id="LOCAL-00001" summary="Bootstrap simulation view">
       <created>1611421892110</created>
@@ -123,13 +122,20 @@
       <option name="project" value="LOCAL" />
       <updated>1611425270503</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add damage bonus + change display name">
+      <created>1611427000446</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1611427000446</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -141,12 +147,14 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Bootstrap simulation view" />
     <MESSAGE value="Add column title" />
     <MESSAGE value="change page title" />
-    <option name="LAST_COMMIT_MESSAGE" value="change page title" />
+    <MESSAGE value="Add damage bonus + change display name" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add damage bonus + change display name" />
   </component>
 </project>
