@@ -5,13 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e49f80b5-5550-4729-8655-280717fee88e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.DndMassCombat/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.DndMassCombat/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.DndMassCombat/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.DndMassCombat/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.DndMassCombat/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.DndMassCombat/.idea/riderModule.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.DndMassCombat/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DndMassCombat/Models/Simulation/Damage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DndMassCombat/Models/Simulation/GroupViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DndMassCombat/Models/Simulation/SimulationViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DndMassCombat/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DndMassCombat/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DndMassCombat/.idea/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DndMassCombat/.idea/riderModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DndMassCombat/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DndMassCombat/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DndMassCombat/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DndMassCombat/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DndMassCombat/DndMassCombat.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DndMassCombat/DndMassCombat.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DndMassCombat/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/DndMassCombat/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DndMassCombat/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/DndMassCombat/wwwroot/css/site.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +24,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/DndMassCombat/Controllers/HomeController.cs" />
+      <option value="$PROJECT_DIR$/DndMassCombat/Models/SimulationViewModel.cs" />
+      <option value="$PROJECT_DIR$/DndMassCombat/Models/Simulation/SimulationViewModel.cs" />
+      <option value="$PROJECT_DIR$/DndMassCombat/wwwroot/css/site.css" />
+      <option value="$PROJECT_DIR$/DndMassCombat/Models/Simulation/Damage.cs" />
+      <option value="$PROJECT_DIR$/DndMassCombat/Models/Simulation/GroupViewModel.cs" />
+      <option value="$PROJECT_DIR$/DndMassCombat/Views/Home/Index.cshtml" />
+    </changedPaths>
+  </component>
   <component name="ProjectId" id="1nTcgF6iEKPDzHKovPmfhZqp4DN" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -30,10 +46,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3505263" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.DndMassCombat">
@@ -80,7 +99,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1611417632926</updated>
-      <workItem from="1611417643465" duration="74000" />
+      <workItem from="1611417643465" duration="3976000" />
     </task>
     <servers />
   </component>

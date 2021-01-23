@@ -22,6 +22,11 @@ namespace DndMassCombat.Controllers
         {
             return View();
         }
+        
+        public void Simulate()
+        {
+            // return View();
+        }
 
         public IActionResult Privacy()
         {
