@@ -3,7 +3,10 @@
 @{
     ViewData["Title"] = "Dnd - Mass combat";
 }
-<h2>Dnd - Mass combat</h2>
+<div class="container">
+    <h1 class="text-center">Dnd - Mass combat</h1>
+    <br/>
+</div>
 
 @using (Html.BeginForm("Simulate", "Home"))
 {
@@ -12,76 +15,85 @@
         
     <div class="container">
         <div class="row">
-            <div class="col form-group">
-                @Html.LabelFor(model => model.Group1.Name, new {@class="col-sm-4"})
-                @Html.EditorFor(model => model.Group1.Name, new {@class="form-control"})
+            <div class="col">
+                <h3>1st group - unit description</h3>
             </div>
-            <div class="col"></div>
-            <div class="col form-group">
-                @Html.LabelFor(model => model.Group2.Name, new {@class="col-sm-4"})
-                @Html.EditorFor(model => model.Group2.Name, new {@class="form-control"})
+            <div class="col-sm-2"></div>
+            <div class="col">
+                <h3>2nd group - unit description</h3>
             </div>
         </div>
-        
+        <div class="row">
+            <div class="col form-group">
+                @Html.LabelFor(model => model.Group1.Name, new {@class = "col-sm-4"})
+                @Html.EditorFor(model => model.Group1.Name, new {@class = "form-control"})
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col form-group">
+                @Html.LabelFor(model => model.Group2.Name, new {@class = "col-sm-4"})
+                @Html.EditorFor(model => model.Group2.Name, new {@class = "form-control"})
+            </div>
+        </div>
+
         <div class="row">
             <div class="col">
-                @Html.LabelFor(model => model.Group1.HitPoint, new {@class="col-sm-4"})
-                @Html.EditorFor(model => model.Group1.HitPoint, new {@class="form-control"})
+                @Html.LabelFor(model => model.Group1.HitPoint, new {@class = "col-sm-4"})
+                @Html.EditorFor(model => model.Group1.HitPoint, new {@class = "form-control"})
             </div>
-            <div class="col"></div>
+            <div class="col-sm-2"></div>
             <div class="col form-group">
-                @Html.LabelFor(model => model.Group2.HitPoint, new {@class="col-sm-4"})
-                @Html.EditorFor(model => model.Group2.HitPoint, new {@class="form-control"})
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col form-group">
-                @Html.LabelFor(model => model.Group1.ArmorClass, new {@class="col-sm-4"})
-                @Html.EditorFor(model => model.Group1.ArmorClass, new {@class="form-control"})
-            </div>
-            <div class="col"></div>
-            <div class="col form-group">
-                @Html.LabelFor(model => model.Group2.ArmorClass, new {@class="col-sm-4"})
-                @Html.EditorFor(model => model.Group2.ArmorClass, new {@class="form-control"})
+                @Html.LabelFor(model => model.Group2.HitPoint, new {@class = "col-sm-4"})
+                @Html.EditorFor(model => model.Group2.HitPoint, new {@class = "form-control"})
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col form-group">
-                @Html.LabelFor(model => model.Group1.HitBonus, new {@class="col-sm-4"})
-                @Html.EditorFor(model => model.Group1.HitBonus, new {@class="form-control"})
+                @Html.LabelFor(model => model.Group1.ArmorClass, new {@class = "col-sm-4"})
+                @Html.EditorFor(model => model.Group1.ArmorClass, new {@class = "form-control"})
             </div>
-            <div class="col"></div>
+            <div class="col-sm-2"></div>
             <div class="col form-group">
-                @Html.LabelFor(model => model.Group2.HitBonus, new {@class="col-sm-4"})
-                @Html.EditorFor(model => model.Group2.HitBonus, new {@class="form-control"})
+                @Html.LabelFor(model => model.Group2.ArmorClass, new {@class = "col-sm-4"})
+                @Html.EditorFor(model => model.Group2.ArmorClass, new {@class = "form-control"})
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col form-group">
-                @Html.LabelFor(model => model.Group1.Damage, new {@class="col-sm-4"})
+                @Html.LabelFor(model => model.Group1.HitBonus, new {@class = "col-sm-4"})
+                @Html.EditorFor(model => model.Group1.HitBonus, new {@class = "form-control"})
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col form-group">
+                @Html.LabelFor(model => model.Group2.HitBonus, new {@class = "col-sm-4"})
+                @Html.EditorFor(model => model.Group2.HitBonus, new {@class = "form-control"})
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col form-group">
+                @Html.LabelFor(model => model.Group1.Damage, new {@class = "col-sm-4"})
                 @* @Html.DropDownListFor(model => model.Group1.Damage, new {@class="form-control"}) *@
                 <select asp-for="Group1.Damage" asp-items="Html.GetEnumSelectList<Damage>()"></select>
             </div>
-            <div class="col"></div>
+            <div class="col-sm-2"></div>
             <div class="col form-group">
-                @Html.LabelFor(model => model.Group2.Damage, new {@class="col-sm-4"})
+                @Html.LabelFor(model => model.Group2.Damage, new {@class = "col-sm-4"})
                 <select asp-for="Group1.Damage" asp-items="Html.GetEnumSelectList<Damage>()"></select>
                 @* @Html.DropDownListFor(model => model.Group2.Damage, htmlAttributes: new {@class="form-control"}) *@
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col">
                 <button type="submit" class="btn btn-primary" value="Attack =>"></button>
             </div>
-            <div class="col"></div>
+            <div class="col-sm-2"></div>
             <div class="col">
                 <button type="submit" class="btn btn-primary" value="<= Attack"></button>
             </div>
         </div>
-        
+
     </div>
 }
