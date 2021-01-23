@@ -4,10 +4,7 @@
     <projectFile>DndMassCombat/DndMassCombat.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e49f80b5-5550-4729-8655-280717fee88e" name="Default Changelist" comment="Bootstrap simulation view">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DndMassCombat/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DndMassCombat/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DndMassCombat/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/DndMassCombat/Views/Home/Index.cshtml" afterDir="false" />
-    </list>
+    <list default="true" id="e49f80b5-5550-4729-8655-280717fee88e" name="Default Changelist" comment="Add column title" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +12,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://D:/repos/DndMassCombat/DndMassCombat/DndMassCombat/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -91,7 +91,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1611417632926</updated>
-      <workItem from="1611417643465" duration="5125000" />
+      <workItem from="1611417643465" duration="6056000" />
     </task>
     <task id="LOCAL-00001" summary="Bootstrap simulation view">
       <created>1611421892110</created>
@@ -100,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611421892110</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add column title">
+      <created>1611424553079</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1611424553079</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +129,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Bootstrap simulation view" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bootstrap simulation view" />
+    <MESSAGE value="Add column title" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add column title" />
   </component>
 </project>
