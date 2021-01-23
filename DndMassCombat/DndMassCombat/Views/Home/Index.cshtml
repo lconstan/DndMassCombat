@@ -74,14 +74,24 @@
         <div class="row">
             <div class="col form-group">
                 @Html.LabelFor(model => model.Group1.Damage, new {@class = "col-sm-4"})
-                @* @Html.DropDownListFor(model => model.Group1.Damage, new {@class="form-control"}) *@
                 <select asp-for="Group1.Damage" asp-items="Html.GetEnumSelectList<Damage>()"></select>
             </div>
             <div class="col-sm-2"></div>
             <div class="col form-group">
                 @Html.LabelFor(model => model.Group2.Damage, new {@class = "col-sm-4"})
                 <select asp-for="Group1.Damage" asp-items="Html.GetEnumSelectList<Damage>()"></select>
-                @* @Html.DropDownListFor(model => model.Group2.Damage, htmlAttributes: new {@class="form-control"}) *@
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col form-group">
+                @Html.LabelFor(model => model.Group1.DamageBonus, new {@class = "col-sm-4"})
+                @Html.EditorFor(model => model.Group1.DamageBonus, new {@class = "form-control"})
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col form-group">
+                @Html.LabelFor(model => model.Group2.DamageBonus, new {@class = "col-sm-4"})
+                @Html.EditorFor(model => model.Group2.DamageBonus, new {@class = "form-control"})
             </div>
         </div>
 

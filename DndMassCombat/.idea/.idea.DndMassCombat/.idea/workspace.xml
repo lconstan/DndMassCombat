@@ -4,7 +4,7 @@
     <projectFile>DndMassCombat/DndMassCombat.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e49f80b5-5550-4729-8655-280717fee88e" name="Default Changelist" comment="Add column title" />
+    <list default="true" id="e49f80b5-5550-4729-8655-280717fee88e" name="Default Changelist" comment="change page title" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +14,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://D:/repos/DndMassCombat/DndMassCombat/DndMassCombat/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/repos/DndMassCombat/DndMassCombat/DndMassCombat/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/repos/DndMassCombat/DndMassCombat/DndMassCombat/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -38,7 +40,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3505263" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35037878" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -91,7 +93,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1611417632926</updated>
-      <workItem from="1611417643465" duration="6056000" />
+      <workItem from="1611417643465" duration="6157000" />
     </task>
     <task id="LOCAL-00001" summary="Bootstrap simulation view">
       <created>1611421892110</created>
@@ -107,7 +109,21 @@
       <option name="project" value="LOCAL" />
       <updated>1611424553079</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="change page title">
+      <created>1611425221200</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1611425221200</updated>
+    </task>
+    <task id="LOCAL-00004" summary="change page title">
+      <created>1611425270503</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1611425270503</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,6 +146,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Bootstrap simulation view" />
     <MESSAGE value="Add column title" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add column title" />
+    <MESSAGE value="change page title" />
+    <option name="LAST_COMMIT_MESSAGE" value="change page title" />
   </component>
 </project>
