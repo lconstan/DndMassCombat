@@ -18,7 +18,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col form-group">
-                            <h3>1st group - unit description</h3>
+                            <h2>1st group - unit description</h2>
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col form-group">
-                            <h3>2nd group - unit description</h3>
+                            <h2>2nd group - unit description</h2>
                         </div>
                     </div>
                 </div>
@@ -60,22 +60,31 @@
                 <div class="container">
                     <div class="row">
                         <div class="col form-group">
-                            <h3>1st group - army</h3>                    
+                            <br/>
+                            <h2>1st group - army</h2>
                         </div>
                     </div>
                 </div>
                 @await Html.PartialAsync("Simulation/GroupViewModel", Model.Group1)
             </div>
-            
+
             <div class="container col-md-6">
                 <div class="container">
                     <div class="row">
                         <div class="col form-group">
-                            <h3>2nd group - army</h3>                    
+                            <br/>
+                            <h2>2nd group - army</h2>
                         </div>
                     </div>
                 </div>
                 @await Html.PartialAsync("Simulation/GroupViewModel", Model.Group2)
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="container col-sm-12">
+                <br/>
+                <textarea class="logTextarea"></textarea>
             </div>
         </div>
     </div>
