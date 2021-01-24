@@ -26,7 +26,7 @@ namespace DndMassCombat.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public void Simulate(GroupViewModel from, GroupViewModel to)
+        public void Simulate(UnitDescriptionViewModel from, UnitDescriptionViewModel to)
         {
             // return View();
         }

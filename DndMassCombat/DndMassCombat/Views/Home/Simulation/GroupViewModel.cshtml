@@ -1,0 +1,17 @@
+﻿@model DndMassCombat.Models.Simulation.GroupViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="col form-group">
+            @Html.LabelFor(model => model.HitPoint, new {@class = "col-sm-4"})
+            @Html.EditorFor(model => model.HitPoint, new {@class = "form-control"})
+        </div>
+    </div>
+        
+    <div class="row">
+        <div class="col form-group">
+            @Html.LabelFor(model => model.UnitCount, new {@class = "col-sm-4"})
+            @Html.EditorFor(model => model.UnitCount, new {@class = "form-control"})
+        </div>
+    </div>
+</div>
