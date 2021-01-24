@@ -24,11 +24,10 @@ namespace DndMassCombat.Controllers
             return View(new SimulationViewModel());
         }
         
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public void Simulate(UnitDescriptionViewModel from, UnitDescriptionViewModel to)
+        [HttpGet]
+        public SimulationViewModel Simulate(SimulationViewModel simulationViewModel, AttackDirection attackDirection)
         {
-            // return View();
+            return simulationViewModel;
         }
 
         public IActionResult Privacy()
