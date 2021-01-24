@@ -1,10 +1,10 @@
 ﻿@using DndMassCombat.Models.Simulation
 @model DndMassCombat.Models.Simulation.SimulationViewModel
 @{
-    ViewData["Title"] = "D&D - Mass combat";
+    ViewData["Title"] = "D&D - Group combat";
 }
 <div class="container">
-    <h1 class="text-center">D&D - Mass combat</h1>
+    <h1 class="text-center">D&D - Group combat</h1>
     <br/>
 </div>
 
@@ -29,7 +29,7 @@
                 @Html.EditorFor(model => model.Group1.Name, new {@class = "form-control"})
             </div>
             <div class="col-sm-2"></div>
-            <div class="col form-group">
+            <div class="col form-group"> 
                 @Html.LabelFor(model => model.Group2.Name, new {@class = "col-sm-4"})
                 @Html.EditorFor(model => model.Group2.Name, new {@class = "form-control"})
             </div>
