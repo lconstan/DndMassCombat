@@ -1,2 +1,46 @@
-﻿@model DndMassCombat.Models.Simulation.GroupViewModel
+﻿@using DndMassCombat.Models.Simulation
+@model DndMassCombat.Models.Simulation.GroupViewModel
 
+<div class="container">
+    <div class="row">
+        <div class="col form-group">
+            @Html.LabelFor(model => model.Name, new {@class = "col-sm-4"})
+            @Html.EditorFor(model => model.Name, new {@class = "form-control"})
+        </div>
+    </div>
+        
+    <div class="row">
+        <div class="col form-group">
+            @Html.LabelFor(model => model.HitPoint, new {@class = "col-sm-4"})
+            @Html.EditorFor(model => model.HitPoint, new {@class = "form-control"})
+        </div>
+    </div>
+        
+    <div class="row">
+        <div class="col form-group">
+            @Html.LabelFor(model => model.ArmorClass, new {@class = "col-sm-4"})
+            @Html.EditorFor(model => model.ArmorClass, new {@class = "form-control"})
+        </div>
+    </div>
+        
+    <div class="row">
+        <div class="col form-group">
+            @Html.LabelFor(model => model.HitBonus, new {@class = "col-sm-4"})
+            @Html.EditorFor(model => model.HitBonus, new {@class = "form-control"})
+        </div>
+    </div>
+        
+    <div class="row">
+        <div class="col form-group">
+            @Html.LabelFor(model => model.DamageBonus, new {@class = "col-sm-4"})
+            @Html.EditorFor(model => model.DamageBonus, new {@class = "form-control"})
+        </div>
+    </div>
+        
+    <div class="row">
+        <div class="col form-group">
+            @Html.LabelFor(model => model.Damage, new {@class = "col-sm-4"})
+            <select asp-for=@Model.Damage asp-items="Html.GetEnumSelectList<Damage>()"></select>
+        </div>
+    </div>
+</div>

@@ -14,10 +14,10 @@ namespace DndMassCombat.Models.Simulation
         
         [Display(Name = "Hit bonus")]
         public int HitBonus { get; set; }
+        
         public Damage Damage { get; set; }
         
         [Display(Name = "Damage bonus")]
-        
         public int DamageBonus { get; set; }
     }
 }
