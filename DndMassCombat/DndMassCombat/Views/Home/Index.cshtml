@@ -10,43 +10,49 @@
 @using (Html.BeginForm("Simulate", "Home"))
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        
+    @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+
     <div class="container">
         <div class="row">
-        <div class="container col-md-6">
-            <div class="row">
-                <div class="col">
-                    <h3>1st group - unit description</h3>
+            <div class="container col-md-6">
+                <div class="container">
+                    <div class="row">
+                        <div class="col form-group">
+                            <h3>1st group - unit description</h3>
+                        </div>
+                    </div>
+                </div>
+
+                @await Html.PartialAsync("Simulation/GroupViewModelView", Model.Group1)
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <input type="submit" class="btn btn-primary text-center" value="Attack 2nd group"/>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            @await Html.PartialAsync("Simulation/GroupViewModelView", Model.Group1)
+            <div class="container col-md-6">
+                <div class="container">
+                    <div class="row">
+                        <div class="col form-group">
+                            <h3>2nd group - unit description</h3>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="container">
-                <div class="row">
-                    <div class="col text-center">
-                        <input type="submit" class="btn btn-primary text-center" value="Attack 2nd group"/>
+                @await Html.PartialAsync("Simulation/GroupViewModelView", Model.Group2)
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <input type="submit" class="btn btn-primary text-center" value="Attack 1st group"/>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="container col-md-6">
-            <div class="col">
-                <h3>2nd group - unit description</h3>
-            </div>
-
-            @await Html.PartialAsync("Simulation/GroupViewModelView", Model.Group2)
-
-            <div class="container">
-                <div class="row">
-                    <div class="col text-center">
-                        <input type="submit" class="btn btn-primary text-center" value="Attack 1st group"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-</div>
     </div>
 }
