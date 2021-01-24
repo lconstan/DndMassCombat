@@ -4,9 +4,8 @@
     <projectFile>DndMassCombat/DndMassCombat.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e49f80b5-5550-4729-8655-280717fee88e" name="Default Changelist" comment="Add button + change Damage &amp; damage bonus order in view">
+    <list default="true" id="e49f80b5-5550-4729-8655-280717fee88e" name="Default Changelist" comment="Replace mass by group">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DndMassCombat/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DndMassCombat/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DndMassCombat/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DndMassCombat/Controllers/HomeController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DndMassCombat/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/DndMassCombat/Views/Home/Index.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,9 +16,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock://D:/repos/DndMassCombat/DndMassCombat/DndMassCombat/Models/Simulation/GroupViewModel.cs" root0="SKIP_HIGHLIGHTING" />
-  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/DndMassCombat/Models/SimulationViewModel.cs" />
@@ -27,8 +23,8 @@
       <option value="$PROJECT_DIR$/DndMassCombat/wwwroot/css/site.css" />
       <option value="$PROJECT_DIR$/DndMassCombat/Models/Simulation/Damage.cs" />
       <option value="$PROJECT_DIR$/DndMassCombat/Models/Simulation/GroupViewModel.cs" />
-      <option value="$PROJECT_DIR$/DndMassCombat/Views/Home/Index.cshtml" />
       <option value="$PROJECT_DIR$/DndMassCombat/Controllers/HomeController.cs" />
+      <option value="$PROJECT_DIR$/DndMassCombat/Views/Home/Index.cshtml" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1nTcgF6iEKPDzHKovPmfhZqp4DN" />
@@ -97,6 +93,7 @@
       <updated>1611417632926</updated>
       <workItem from="1611417643465" duration="6157000" />
       <workItem from="1611426732673" duration="990000" />
+      <workItem from="1611505336086" duration="45000" />
     </task>
     <task id="LOCAL-00001" summary="Bootstrap simulation view">
       <created>1611421892110</created>
@@ -140,7 +137,21 @@
       <option name="project" value="LOCAL" />
       <updated>1611427318434</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Edit gitIgnore">
+      <created>1611486775162</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1611486775162</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Replace mass by group">
+      <created>1611486794259</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1611486794259</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,6 +178,8 @@
     <MESSAGE value="change page title" />
     <MESSAGE value="Add damage bonus + change display name" />
     <MESSAGE value="Add button + change Damage &amp; damage bonus order in view" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add button + change Damage &amp; damage bonus order in view" />
+    <MESSAGE value="Edit gitIgnore" />
+    <MESSAGE value="Replace mass by group" />
+    <option name="LAST_COMMIT_MESSAGE" value="Replace mass by group" />
   </component>
 </project>
