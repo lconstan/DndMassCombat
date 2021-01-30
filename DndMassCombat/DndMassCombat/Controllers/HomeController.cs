@@ -24,7 +24,7 @@ namespace DndMassCombat.Controllers
             return View(new SimulationViewModel());
         }
         
-        [HttpGet]
+        [HttpPost]
         public SimulationViewModel Simulate(SimulationViewModel simulationViewModel, AttackDirection attackDirection)
         {
             return simulationViewModel;
