@@ -21,7 +21,7 @@ namespace DndMassCombat
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<ISimulationRunner, SimulationRunner>();
-            services.AddSingleton<IModelValidator, ModelValidator>();
+            services.AddSingleton<IHackDetector, HackDetector>();
             services.AddControllersWithViews();
         }
 

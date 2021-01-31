@@ -2,7 +2,7 @@
 
 namespace DndMassCombat.Models
 {
-    public interface IModelValidator
+    public interface IHackDetector
     {
         bool IsModelValid(SimulationViewModel simulationViewModel);
     }

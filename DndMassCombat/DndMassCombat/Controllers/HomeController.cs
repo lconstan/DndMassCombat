@@ -7,12 +7,12 @@ namespace DndMassCombat.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IModelValidator _modelValidator;
+        private readonly IHackDetector _hackDetector;
         private readonly ISimulationRunner _simulationRunner;
 
-        public HomeController(IModelValidator modelValidator, ISimulationRunner simulationRunner)
+        public HomeController(IHackDetector hackDetector, ISimulationRunner simulationRunner)
         {
-            _modelValidator = modelValidator;
+            _hackDetector = hackDetector;
             _simulationRunner = simulationRunner;
         }
 
@@ -24,12 +24,15 @@ namespace DndMassCombat.Controllers
         [HttpPost]
         public IActionResult Simulate(SimulationViewModel simulationViewModel)
         {
-            if (!_modelValidator.IsModelValid(simulationViewModel))
+            if (ModelState.IsValid)
             {
-                return StatusCode(418);
-            }
+                if (!_hackDetector.IsModelValid(simulationViewModel))
+                {
+                    return StatusCode(418);
+                }
             
-            _simulationRunner.Simulate(simulationViewModel);
+                _simulationRunner.Simulate(simulationViewModel);    
+            }
             
             return View("Index", simulationViewModel);
         }
