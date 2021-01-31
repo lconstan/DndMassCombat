@@ -1,4 +1,4 @@
-﻿namespace DndMassCombat.Models.Simulation
+﻿namespace DndMassCombat.Models.ViewModels
 {
     public class SimulationViewModel
     {

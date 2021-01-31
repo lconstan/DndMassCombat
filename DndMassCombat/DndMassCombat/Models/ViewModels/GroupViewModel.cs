@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DndMassCombat.Models.Simulation
+namespace DndMassCombat.Models.ViewModels
 {
     public class GroupViewModel
     {

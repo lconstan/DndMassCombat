@@ -1,22 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using DndMassCombat.Models;
-using DndMassCombat.Models.Simulation;
+using DndMassCombat.Models.ViewModels;
 
 namespace DndMassCombat.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IModelValidator _modelValidator;
+        private readonly ISimulationRunner _simulationRunner;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IModelValidator modelValidator, ISimulationRunner simulationRunner)
         {
-            _logger = logger;
+            _modelValidator = modelValidator;
+            _simulationRunner = simulationRunner;
         }
 
         public IActionResult Index()
@@ -25,9 +22,16 @@ namespace DndMassCombat.Controllers
         }
         
         [HttpPost]
-        public SimulationViewModel Simulate(SimulationViewModel simulationViewModel)
+        public IActionResult Simulate(SimulationViewModel simulationViewModel)
         {
-            return simulationViewModel;
+            if (!_modelValidator.IsModelValid(simulationViewModel))
+            {
+                return StatusCode(418);
+            }
+            
+            _simulationRunner.Simulate(simulationViewModel);
+            
+            return View("Index", simulationViewModel);
         }
 
         public IActionResult Privacy()
