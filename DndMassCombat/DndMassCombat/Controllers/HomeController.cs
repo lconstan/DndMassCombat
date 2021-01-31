@@ -34,7 +34,7 @@ namespace DndMassCombat.Controllers
             return View("Index", simulationViewModel);
         }
 
-        public IActionResult Privacy()
+        public IActionResult Details()
         {
             return View();
         }
