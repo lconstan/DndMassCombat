@@ -19,5 +19,7 @@ namespace DndMassCombat.Models.Simulation
         
         [Display(Name = "Damage bonus")]
         public int DamageBonus { get; set; }
+        
+        public bool IsAttacking { get; set; }
     }
 }

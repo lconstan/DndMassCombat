@@ -2,3 +2,10 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+function setTrueAndSubmit(id) {
+    var button = document.getElementById(id);
+    var hidden = button.previousElementSibling;
+    hidden.value = true;
+    
+    document.getElementById("simulateForm").submit();
+}
