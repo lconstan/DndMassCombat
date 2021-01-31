@@ -22,8 +22,8 @@
                     </div>
                 </div>
 
-                @await Html.PartialAsync("Simulation/UnitDescriptionViewModel", Model.UnitDescription1)
-
+                <partial name="Simulation/UnitDescriptionViewModel" for="UnitDescription1"/>
+                
                 <div class="container">
                     <div class="row">
                         <div class="col text-center">
@@ -42,8 +42,8 @@
                     </div>
                 </div>
 
-                @await Html.PartialAsync("Simulation/UnitDescriptionViewModel", Model.UnitDescription2)
-
+                <partial name="Simulation/UnitDescriptionViewModel" for="UnitDescription2"/>
+                
                 <div class="container">
                     <div class="row">
                         <div class="col text-center">
@@ -64,7 +64,9 @@
                         </div>
                     </div>
                 </div>
-                @await Html.PartialAsync("Simulation/GroupViewModel", Model.Group1)
+                
+                <partial name="Simulation/GroupViewModel" for="Group1"/>
+                
             </div>
 
             <div class="container col-md-6">
@@ -76,7 +78,8 @@
                         </div>
                     </div>
                 </div>
-                @await Html.PartialAsync("Simulation/GroupViewModel", Model.Group2)
+                
+                <partial name="Simulation/GroupViewModel" for="Group2"/>
             </div>
         </div>
         
