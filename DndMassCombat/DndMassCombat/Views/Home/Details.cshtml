@@ -1,6 +1,49 @@
 ﻿@{
     ViewData["Title"] = "Details";
 }
-<h1>@ViewData["Title"]</h1>
+<div class="container">
+    <div class="container">
+        <h1>Generic details</h1>
+        <p>
+            This page provide explanation on how the fights are handled. Please note that all units within a group must be the same.<br/>
+            Each click on the <em>Attack</em> button simulates a D&D fight round. You can edit the group's <em>Hit point</em> at any time to match the events in your battle (for instance, player attack).<br/>
+            <em>Unit count</em> is dynamically computed from the group <em>Hit point</em>, hence it is read only. It is computed as Floor(Army <em>Hit point</em> / Unit <em>Hit point</em>)
+        </p>
+    </div>
 
-<p>Use this page to detail your site's privacy policy.</p>
+    <div class="container">
+        <h1>How are group fights handled?</h1>
+        <p>For each unit in the attacking group, a unit fight is handled against a random unit in the opponent group.</p>
+    </div>
+
+    <div class="container">
+        <h1>How are unit fights handled?</h1>
+        <p>
+            There are several steps:
+        </p>
+        <ul>
+            <li>Attacking unit roll a D20 and add its <em>Hit Bonus</em>. This gives the scoring attack.</li>
+            <li>If the scoring attack is strictly lower than opponent <em>Armor Class</em>, the hit is considered as missed and no damage will be done.</li>
+            <li>If the scoring attack is greater or equal to the opponent <em>Armor Class</em>, <em>Damage</em> + <em>Damage bonus</em> will substracted to opponent group <em>Hit point</em>.</li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1>How are unit fights handled?</h1>
+        <p>
+            There are several steps:
+        </p>
+        <ul>
+            <li>Attacking unit roll a D20 and add its <em>Hit Bonus</em>. This gives the scoring attack.</li>
+            <li>If the scoring attack is strictly lower than opponent <em>Armor Class</em>, the hit is considered as missed and no damage will be done.</li>
+            <li>If the scoring attack is greater or equal to the opponent <em>Armor Class</em>, <em>Damage</em> + <em>Damage bonus</em> will substracted to opponent group <em>Hit point</em>.</li>
+        </ul>
+    </div>
+    
+    <div class="container">
+        <h1>Contact</h1>
+        <p>
+            Please send an email to <a href="mailto:suboverflow@gmail.com">suboverflow@gmail.com</a>
+        </p>
+    </div>
+</div>
