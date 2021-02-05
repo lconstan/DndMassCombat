@@ -3,9 +3,17 @@
 
 // Write your JavaScript code.
 function setTrueAndSubmit(id) {
-    var button = document.getElementById(id);
-    var hidden = button.previousElementSibling;
-    hidden.value = true;
+    var $form = $("#simulateForm");
     
-    document.getElementById("simulateForm").submit();
+    $.validator.unobtrusive.parse($form);
+    $form.validate();
+
+    if ($form.valid()) 
+    {
+        var button = document.getElementById(id);
+        var hidden = button.previousElementSibling;
+        hidden.value = true;
+        
+        $form.submit();
+    }
 }

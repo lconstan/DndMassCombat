@@ -4,46 +4,71 @@
 <div class="container">
     <div class="row">
         <div class="col form-group">
-            @Html.LabelFor(model => model.Name, new {@class = "col-sm-4"})
-            @Html.EditorFor(model => model.Name, new {@class = "form-control"})
+            <div class="row">
+                <span asp-validation-for="Name" class="text-danger col-sm-8"></span>
+            </div>
+            <div class="row">
+                @Html.LabelFor(model => model.Name, new {@class = "col-sm-4"})
+                @Html.EditorFor(model => model.Name, new {@class = "form-control"})
+            </div>
         </div>
     </div>
-        
+
     <div class="row">
         <div class="col form-group">
-            @Html.LabelFor(model => model.HitPoint, new {@class = "col-sm-4"})
-            @Html.EditorFor(model => model.HitPoint, new {@class = "form-control"})
+            <div class="row">
+                <span asp-validation-for="HitPoint" class="text-danger col-sm-8"></span>
+            </div>
+            <div class="row">
+                @Html.LabelFor(model => model.HitPoint, new {@class = "col-sm-4"})
+                @Html.EditorFor(model => model.HitPoint, new {@class = "form-control"})
+            </div>
         </div>
     </div>
-        
+
     <div class="row">
         <div class="col form-group">
-            @Html.LabelFor(model => model.ArmorClass, new {@class = "col-sm-4"})
-            @Html.EditorFor(model => model.ArmorClass, new {@class = "form-control"})
+            <div class="row">
+                <span asp-validation-for="ArmorClass" class="text-danger col-sm-8"></span>
+            </div>
+            <div class="row">
+                @Html.LabelFor(model => model.ArmorClass, new {@class = "col-sm-4"})
+                @Html.EditorFor(model => model.ArmorClass, new {@class = "form-control"})
+            </div>
         </div>
     </div>
-        
+
     <div class="row">
         <div class="col form-group">
-            @Html.LabelFor(model => model.HitBonus, new {@class = "col-sm-4"})
-            @Html.EditorFor(model => model.HitBonus, new {@class = "form-control"})
+            <div class="row">
+                <span asp-validation-for="HitBonus" class="text-danger col-sm-8"></span>
+            </div>
+            <div class="row">
+                @Html.LabelFor(model => model.HitBonus, new {@class = "col-sm-4"})
+                @Html.EditorFor(model => model.HitBonus, new {@class = "form-control"})
+            </div>
         </div>
     </div>
-        
+
     <div class="row">
         <div class="col form-group">
-            @Html.LabelFor(model => model.DamageBonus, new {@class = "col-sm-4"})
-            @Html.EditorFor(model => model.DamageBonus, new {@class = "form-control"})
+            <div class="row">
+                <span asp-validation-for="DamageBonus" class="text-danger col-sm-8"></span>
+            </div>
+            <div class="row">
+                @Html.LabelFor(model => model.DamageBonus, new {@class = "col-sm-4"})
+                @Html.EditorFor(model => model.DamageBonus, new {@class = "form-control"})
+            </div>
         </div>
     </div>
-        
+
     <div class="row">
         <div class="col form-group">
             @Html.LabelFor(model => model.Damage, new {@class = "col-sm-4"})
             <select asp-for=@Model.Damage asp-items="Html.GetEnumSelectList<Damage>()"></select>
         </div>
     </div>
-    
+
     <div class="container">
         <div class="row">
             <div class="col text-center">
