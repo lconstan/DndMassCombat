@@ -9,6 +9,7 @@ namespace DndMassCombat.Models.ViewModels
         public int HitPoint { get; set; }
         
         [Display(Name = "Unit count")]
+        [Required]
         public int UnitCount { get; }
     }
 }

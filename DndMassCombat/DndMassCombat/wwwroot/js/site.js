@@ -19,14 +19,20 @@ function setTrueAndSubmit(id) {
 }
 
 // UnitCount = Group hit point / Unit hit point
+// onkeyup HitPoint
 function assignUnitCount(id){
-    const groupHitpointString = document.getElementById(id).value;
-
-    if (!isInt(groupHitpointString))
-        return;
-
     const groupNumberIdentifier = id.split("_");
     const groupNumber = groupNumberIdentifier[0] === "Group1" ? 1 : 2;
+    let unitCountField = document.getElementById(groupNumberIdentifier[0] + "_UnitCount");
+    
+    const groupHitpointString = document.getElementById(id).value;
+
+    if (groupHitpointString === "")
+        unitCountField.value = null;
+    
+    if (!isInt(groupHitpointString))
+        return;
+    
     const unitHitPointFieldId = "UnitDescription" + groupNumber + "_HitPoint";
     const unitHitpointString = document.getElementById(unitHitPointFieldId).value;
 
@@ -36,14 +42,37 @@ function assignUnitCount(id){
     const groupHitpoint = parseInt(groupHitpointString);
     const unitHitpoint = parseInt(unitHitpointString);
     const unitCount = Math.floor(groupHitpoint / unitHitpoint);
-
-    let unitCountField = document.getElementById(groupNumberIdentifier[0] + "_UnitCount");
     
     if (unitCount > 0)
          unitCountField.value = unitCount;
     else
         unitCountField.value = null;
+}
+
+// Group Hitpoint = UnitCount * Unit hit point
+// onkeyup UnitCount
+function assignHitpoint(id)
+{
+    const groupNumberIdentifier = id.split("_");
+    const groupNumber = groupNumberIdentifier[0] === "Group1" ? 1 : 2;
+    let armyHitPointField = document.getElementById(groupNumberIdentifier[0] + "_HitPoint");
+    const unitCountString = document.getElementById(id).value;
     
+    if (unitCountString === "")
+        armyHitPointField.value = null;
+    
+    if (!isInt(unitCountString))
+        return;
+    
+    const unitHitPointFieldId = "UnitDescription" + groupNumber + "_HitPoint";
+    const unitHitpointString = document.getElementById(unitHitPointFieldId).value;
+
+    if (!isInt(unitHitpointString))
+        return;
+
+    const unitCount = parseInt(unitCountString);
+    const unitHitpoint = parseInt(unitHitpointString);
+    armyHitPointField.value = unitCount * unitHitpoint;
 }
 
 function isInt(value) {
