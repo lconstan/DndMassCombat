@@ -10,14 +10,17 @@ namespace DndMassCombat.Models.ViewModels
         
         [Display(Name = "Hit point")]
         [Required]
+        [Range(0, 100)]
         public int HitPoint { get; set; }
         
         [Display(Name = "Armor class")]
         [Required]
+        [Range(0, 100)]
         public int ArmorClass { get; set; }
         
         [Display(Name = "Hit bonus")]
         [Required]
+        [Range(0, 100)]
         public int HitBonus { get; set; }
         
         [Required]
@@ -26,6 +29,7 @@ namespace DndMassCombat.Models.ViewModels
         
         [Display(Name = "Damage bonus")]
         [Required]
+        [Range(0, 100)]
         public int DamageBonus { get; set; }
         
         public bool? IsAttacking { get; set; }
