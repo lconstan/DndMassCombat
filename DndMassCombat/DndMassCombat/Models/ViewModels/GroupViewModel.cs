@@ -10,6 +10,6 @@ namespace DndMassCombat.Models.ViewModels
         
         [Display(Name = "Unit count")]
         [Required]
-        public int UnitCount { get; }
+        public int UnitCount { get; set; }
     }
 }
