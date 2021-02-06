@@ -20,10 +20,42 @@ namespace DndMassCombat.Controllers
 
         public IActionResult Index()
         {
-            return View(new SimulationViewModel());
+            var model = new SimulationViewModel()
+            {
+                Group1 = new GroupViewModel()
+                {
+                    HitPoint = 100,
+                    UnitCount = 20
+                },
+                Group2 = new GroupViewModel()
+                {
+                    HitPoint = 100,
+                    UnitCount = 2
+                },
+                UnitDescription1 = new UnitDescriptionViewModel()
+                {
+                    Name = "HobGob",
+                    ArmorClass = 17,
+                    DamageBonus = 1,
+                    DamageDice = DamageDice.D6,
+                    HitBonus = 2,
+                    HitPoint = 5
+                },
+                UnitDescription2 = new UnitDescriptionViewModel()
+                {
+                    Name = "HobGob",
+                    ArmorClass = 17,
+                    DamageBonus = 1,
+                    DamageDice = DamageDice.D6,
+                    HitBonus = 2,
+                    HitPoint = 5
+                },
+            };
+            return View(model);
         }
         
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Simulate(SimulationViewModel simulationViewModel)
         {
             if (ModelState.IsValid)
@@ -33,11 +65,12 @@ namespace DndMassCombat.Controllers
                     return StatusCode(418);
                 }
             
-                _simulationRunner.Simulate(simulationViewModel);    
+                _simulationRunner.Simulate(simulationViewModel);
             }
 
-            simulationViewModel.UnitDescription1.IsAttacking = null;
-            simulationViewModel.UnitDescription2.IsAttacking = null;
+            ModelState.Clear();
+            simulationViewModel.UnitDescription1.IsAttacking = false;
+            simulationViewModel.UnitDescription2.IsAttacking = false;
             
             return View("Index", simulationViewModel);
         }
