@@ -8,7 +8,7 @@
             </div>
             <div class="row">
                 @Html.LabelFor(model => model.HitPoint, new {@class = "col-sm-4"})
-                @Html.EditorFor(model => model.HitPoint, new {@class = "form-control"})
+                <input asp-for="HitPoint" class="text-box single-line" onkeyup="assignUnitCount(id)">
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
             </div>
             <div class="row">
                 @Html.LabelFor(model => model.UnitCount, new {@class = "col-sm-4"})
-                @Html.EditorFor(model => model.UnitCount, new {@class = "form-control"})
+                <input asp-for="UnitCount" class="text-box single-line"/>
             </div>
         </div>
     </div>
