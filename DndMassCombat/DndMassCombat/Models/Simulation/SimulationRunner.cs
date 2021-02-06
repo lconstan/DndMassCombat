@@ -1,6 +1,6 @@
 ﻿using DndMassCombat.Models.ViewModels;
 
-namespace DndMassCombat.Models
+namespace DndMassCombat.Models.Simulation
 {
     public class SimulationRunner : ISimulationRunner
     {

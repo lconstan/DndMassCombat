@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using DndMassCombat.Models;
+using DndMassCombat.Models.Simulation;
+using DndMassCombat.Models.Validation;
 using DndMassCombat.Models.ViewModels;
 
 namespace DndMassCombat.Controllers
