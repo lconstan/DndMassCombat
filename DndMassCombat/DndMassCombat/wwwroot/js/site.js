@@ -3,15 +3,15 @@
 
 // Write your JavaScript code.
 function setTrueAndSubmit(id) {
-    var $form = $("#simulateForm");
-    
+    const $form = $("#simulateForm");
+
     $.validator.unobtrusive.parse($form);
     $form.validate();
 
     if ($form.valid()) 
     {
-        var button = document.getElementById(id);
-        var hidden = button.previousElementSibling;
+        const button = document.getElementById(id);
+        const hidden = button.previousElementSibling;
         hidden.value = true;
         
         $form.submit();
@@ -20,25 +20,30 @@ function setTrueAndSubmit(id) {
 
 // UnitCount = Group hit point / Unit hit point
 function assignUnitCount(id){
-    var groupHitpointString = document.getElementById(id).value;
-    
+    const groupHitpointString = document.getElementById(id).value;
+
     if (!isInt(groupHitpointString))
         return;
-    
-    var groupNumberIdentifier = id.split("_");
-    var groupNumber = groupNumberIdentifier[0] === "Group1" ? 1 : 2;
-    var unitHitPointFieldId = "UnitDescription"+groupNumber+"_HitPoint";
-    var unitHitpointString = document.getElementById(unitHitPointFieldId).value;
-        
+
+    const groupNumberIdentifier = id.split("_");
+    const groupNumber = groupNumberIdentifier[0] === "Group1" ? 1 : 2;
+    const unitHitPointFieldId = "UnitDescription" + groupNumber + "_HitPoint";
+    const unitHitpointString = document.getElementById(unitHitPointFieldId).value;
+
     if (!isInt(unitHitpointString))
         return;
+
+    const groupHitpoint = parseInt(groupHitpointString);
+    const unitHitpoint = parseInt(unitHitpointString);
+    const unitCount = Math.floor(groupHitpoint / unitHitpoint);
+
+    let unitCountField = document.getElementById(groupNumberIdentifier[0] + "_UnitCount");
     
-    var groupHitpoint = parseInt(groupHitpointString);
-    var unitHitpoint = parseInt(unitHitpointString);
-    var unitCount = groupHitpoint / unitHitpoint;
+    if (unitCount > 0)
+         unitCountField.value = unitCount;
+    else
+        unitCountField.value = null;
     
-    if (unitCount !== 0)
-        document.getElementById(groupNumberIdentifier[0]+"_UnitCount").value = unitCount;
 }
 
 function isInt(value) {

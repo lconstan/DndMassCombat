@@ -4,23 +4,23 @@
     <div class="row">
         <div class="col form-group">
             <div class="row">
-                <span asp-validation-for="HitPoint" class="text-danger col-sm-8"></span>
-            </div>
-            <div class="row">
-                @Html.LabelFor(model => model.HitPoint, new {@class = "col-sm-4"})
-                <input asp-for="HitPoint" class="text-box single-line" onkeyup="assignUnitCount(id)">
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col form-group">
-            <div class="row">
                 <span asp-validation-for="UnitCount" class="text-danger col-sm-8"></span>
             </div>
             <div class="row">
                 @Html.LabelFor(model => model.UnitCount, new {@class = "col-sm-4"})
                 <input asp-for="UnitCount" class="text-box single-line"/>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col form-group">
+            <div class="row">
+                <span asp-validation-for="HitPoint" class="text-danger col-sm-8"></span>
+            </div>
+            <div class="row">
+                @Html.LabelFor(model => model.HitPoint, new {@class = "col-sm-4"})
+                <input asp-for="HitPoint" class="text-box single-line" onkeyup="assignUnitCount(id)">
             </div>
         </div>
     </div>
