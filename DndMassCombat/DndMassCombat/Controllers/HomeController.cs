@@ -33,6 +33,9 @@ namespace DndMassCombat.Controllers
             
                 _simulationRunner.Simulate(simulationViewModel);    
             }
+
+            simulationViewModel.UnitDescription1.IsAttacking = null;
+            simulationViewModel.UnitDescription2.IsAttacking = null;
             
             return View("Index", simulationViewModel);
         }
