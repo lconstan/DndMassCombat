@@ -12,7 +12,7 @@
 
     <div class="container">
         <h1>How are group fights handled?</h1>
-        <p>For each unit in the attacking group, a unit fight is started against a random unit in the opponent group.</p>
+        <p>For each unit in the attacking group, a unit fight is started against a random unit in the opponent group. The defending unit remains the same for each attacking unit in subsequent rounds.</p>
     </div>
 
     <div class="container">
@@ -25,6 +25,28 @@
             <li>If the scoring attack is strictly lower than opponent <em>Armor Class</em>, the hit is considered as missed and no damage will be done.</li>
             <li>If the scoring attack is greater or equal to the opponent <em>Armor Class</em>, <em>Damage</em> + <em>Damage bonus</em> will substracted to opponent group <em>Hit point</em>.</li>
         </ul>
+    </div>
+
+    <div class="container">
+        <h1>How are fumble handled?</h1>
+        <p>
+            Fumble occurs when the 1st D20 roll result is 1. It means a big failure while trying to attack. In this case, the attacking unit hit is considered as missed.
+        </p>
+    </div>
+    
+    <div class="container">
+        <h1>How are critical hits handled?</h1>
+        <p>
+            Critical hits occurs when the 1st D20 roll result is 20. It means a big success while trying to attack. In this case, the attacking unit hit is considered as a success.
+        </p>
+        <p>
+            Damage will be computed as follow:
+            <ul>
+                <li>Compute Base damage = Maximum value of <em>Damage</em> + <em>Damage Bonus</em>.<br/></li>
+                <li>Roll <em>Damage</em> dice. While result is maximum value of <em>Damage</em> dice, add Base damage value (i.e. : x2, x3, ...)</li>
+                <li>When result is not maximum value of <em>Damage</em>, add <em>Damage</em> value + <em>Damage bonus</em></li>
+            </ul>
+        </p>
     </div>
     
     <div class="container">

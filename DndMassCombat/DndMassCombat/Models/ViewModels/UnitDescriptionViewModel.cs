@@ -21,7 +21,7 @@ namespace DndMassCombat.Models.ViewModels
         public int HitBonus { get; set; }
         
         [Required]
-        public Damage Damage { get; set; }
+        public DamageDice DamageDice { get; set; }
         
         
         [Display(Name = "Damage bonus")]
