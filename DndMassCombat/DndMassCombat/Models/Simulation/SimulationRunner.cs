@@ -43,6 +43,9 @@ namespace DndMassCombat.Models.Simulation
         private void Simulate(UnitDescriptionViewModel attackingUnit, GroupViewModel attackingGroup,
             UnitDescriptionViewModel defendingUnit, GroupViewModel defendingGroup, StringBuilder description)
         {
+            if (defendingGroup.UnitCount == 0)
+                return;
+            
             var defendingUnitHitPointList = string.IsNullOrEmpty(defendingGroup.UnitsHpJson) 
                 ? new List<int>() 
                 : JsonSerializer.Deserialize<List<int>>(defendingGroup.UnitsHpJson);
@@ -164,9 +167,10 @@ namespace DndMassCombat.Models.Simulation
             }
 
             // Remove old units
-            for (int i = 0; i < defendingUnitHitPointList.Count - defendingGroupUnitCount; i++)
+            if (defendingUnitHitPointList.Count > defendingGroupUnitCount)
             {
-                defendingUnitHitPointList.RemoveAt(defendingUnitHitPointList.Count - 1);
+                var diff = defendingUnitHitPointList.Count - defendingGroupUnitCount;
+                defendingUnitHitPointList.RemoveRange(defendingUnitHitPointList.Count - diff, diff);
             }
         }
     }
