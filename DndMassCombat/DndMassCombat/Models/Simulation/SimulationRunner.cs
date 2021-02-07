@@ -18,6 +18,7 @@ namespace DndMassCombat.Models.Simulation
         public void Simulate(SimulationViewModel simulationViewModel)
         {
             var sb = new StringBuilder();
+            sb.AppendLine("----------------");
             
             if (simulationViewModel.UnitDescription1.IsAttacking == true)
             {
@@ -35,8 +36,7 @@ namespace DndMassCombat.Models.Simulation
                     simulationViewModel.Group1,
                     sb);
             }
-
-            sb.AppendLine("----------------");
+            
             simulationViewModel.Description += sb.ToString();
         }
 
