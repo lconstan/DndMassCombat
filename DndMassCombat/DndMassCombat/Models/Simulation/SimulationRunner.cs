@@ -72,7 +72,6 @@ namespace DndMassCombat.Models.Simulation
             {
                 description.AppendLine($"Total damage: {attackResult.TotalDamage}");
                 description.AppendLine($"Total unit killed: {attackResult.TotalUnitKilled}");
-                description.AppendLine($"Total unit wounded: {attackResult.TotalUnitWounded}");
             }
         }
 
@@ -134,7 +133,6 @@ namespace DndMassCombat.Models.Simulation
             {
                 TotalDamage = totalDamage,
                 TotalUnitKilled = totalKilledCount,
-                TotalUnitWounded = totalUnitWounded
             };
         }
 
