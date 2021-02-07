@@ -23,7 +23,6 @@ namespace DndMassCombat
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<ISimulationRunner, SimulationRunner>();
-            services.AddSingleton<IHackDetector, HackDetector>();
             services.AddSingleton<IDiceRoller, DiceRoller>();
             services.AddControllersWithViews();
         }

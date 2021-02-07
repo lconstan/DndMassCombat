@@ -2,19 +2,16 @@
 using Microsoft.AspNetCore.Mvc;
 using DndMassCombat.Models;
 using DndMassCombat.Models.Simulation;
-using DndMassCombat.Models.Validation;
 using DndMassCombat.Models.ViewModels;
 
 namespace DndMassCombat.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IHackDetector _hackDetector;
         private readonly ISimulationRunner _simulationRunner;
 
-        public HomeController(IHackDetector hackDetector, ISimulationRunner simulationRunner)
+        public HomeController(ISimulationRunner simulationRunner)
         {
-            _hackDetector = hackDetector;
             _simulationRunner = simulationRunner;
         }
 
@@ -30,7 +27,7 @@ namespace DndMassCombat.Controllers
                 Group2 = new GroupViewModel()
                 {
                     HitPoint = 100,
-                    UnitCount = 2
+                    UnitCount = 20
                 },
                 UnitDescription1 = new UnitDescriptionViewModel()
                 {
@@ -60,11 +57,6 @@ namespace DndMassCombat.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (!_hackDetector.IsModelValid(simulationViewModel))
-                {
-                    return StatusCode(418);
-                }
-            
                 _simulationRunner.Simulate(simulationViewModel);
             }
 
