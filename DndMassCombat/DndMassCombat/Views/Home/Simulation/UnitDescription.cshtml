@@ -21,7 +21,7 @@
             </div>
             <div class="row">
                 @Html.LabelFor(model => model.HitPoint, new {@class = "col-sm-4"})
-                <input asp-for="HitPoint" class="text-box single-line" onkeyup="fillUnitCountOrHitpoint(id)"/>
+                <input asp-for="HitPoint" class="text-box single-line" onkeyup="assignGroupHitpointFromUnitHitpoint(id)"/>
             </div>
         </div>
     </div>

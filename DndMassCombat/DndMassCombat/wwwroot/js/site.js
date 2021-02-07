@@ -47,7 +47,7 @@ function assignUnitCount(id){
 
 // Group Hitpoint = UnitCount * Unit hit point
 // onkeyup UnitCount
-function assignHitpoint(id)
+function assignHitpointFromUnitCount(id)
 {
     const groupNumberIdentifier = id.split("_");
     const groupNumber = groupNumberIdentifier[0] === "Group1" ? 1 : 2;
@@ -71,41 +71,12 @@ function assignHitpoint(id)
     groupHitPointField.value = unitCount * unitHitpoint;
 }
 
-function fillUnitCountOrHitpoint(id)
+function assignGroupHitpointFromUnitHitpoint(id)
 {
     const groupNumberIdentifier = id.split("_");
     const groupNumber = groupNumberIdentifier[0] === "UnitDescription1" ? 1 : 2;
-
-    let groupHitPointField = document.getElementById("Group" + groupNumber + "_HitPoint");
-    let unitCountField = document.getElementById("Group" + groupNumber + "_UnitCount");
-    const unitHitpointValueString = document.getElementById(id).value;
     
-    if (unitHitpointValueString === "" || !isInt(unitHitpointValueString))
-        return;
-
-    const unitHitpoint = parseInt(unitHitpointValueString);
-    let groupHitpointValueString = groupHitPointField.value;
-    let unitCountValueString = unitCountField.value;
-    
-    if (groupHitpointValueString === "" && unitCountValueString === "")
-        return;
-    
-    if (groupHitpointValueString !== "")
-    {
-        if (!isInt(groupHitpointValueString))
-            return;
-
-        const groupHitpoint = parseInt(groupHitpointValueString);
-
-        setUnitCountField(groupHitpoint, unitHitpoint, unitCountField);
-        return;
-    }
-
-    if (!isInt(unitCountValueString))
-        return; 
-    
-    const unitCount = parseInt(unitCountValueString)
-    groupHitPointField.value = unitCount * unitHitpoint;
+    assignHitpointFromUnitCount("Group" + groupNumber + "_UnitCount");
 }
 
 function setUnitCountField(groupHitpoint, unitHitpoint, unitCountField)
