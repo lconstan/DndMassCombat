@@ -17,6 +17,7 @@ namespace DndMassCombat.Controllers
 
         public IActionResult Index()
         {
+#if DEBUG
             var model = new SimulationViewModel()
             {
                 Group1 = new GroupViewModel()
@@ -49,6 +50,9 @@ namespace DndMassCombat.Controllers
                 },
             };
             return View(model);
+#else
+            return View();
+#endif
         }
         
         [HttpPost]
