@@ -21,9 +21,9 @@
 
                 @{
                     ViewData["SubmitButtonText"] = "Attack 2nd group";
-                          <partial name="Simulation/UnitDescription" for="UnitDescription1" view-data="ViewData" />
+            <partial name="Simulation/UnitDescription" for="UnitDescription1" view-data="ViewData"/>
                 }
-                
+
             </div>
 
             <div class="container col-md-6">
@@ -37,11 +37,11 @@
 
                 @{
                     ViewData["SubmitButtonText"] = "Attack 1st group";
-                          <partial name="Simulation/UnitDescription" for="UnitDescription2" view-data="ViewData" />
+            <partial name="Simulation/UnitDescription" for="UnitDescription2" view-data="ViewData"/>
                 }
             </div>
         </div>
-        
+
         <div class="row">
             <div class="container col-md-6">
                 <div class="container">
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <partial name="Simulation/Group" for="Group1"/>
             </div>
 
@@ -65,15 +65,15 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <partial name="Simulation/Group" for="Group2"/>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="container col-sm-12">
                 <br/>
-                <textarea class="logTextarea" readonly="readonly" asp-for="Description"></textarea>
+                <textarea class="logTextarea" id="logTextarea" readonly="readonly" asp-for="Description"></textarea>
             </div>
         </div>
     </div>

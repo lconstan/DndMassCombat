@@ -17,38 +17,7 @@ namespace DndMassCombat.Controllers
 
         public IActionResult Index()
         {
-            var model = new SimulationViewModel()
-            {
-                Group1 = new GroupViewModel()
-                {
-                    HitPoint = 100,
-                    UnitCount = 20
-                },
-                Group2 = new GroupViewModel()
-                {
-                    HitPoint = 100,
-                    UnitCount = 20
-                },
-                UnitDescription1 = new UnitDescriptionViewModel()
-                {
-                    Name = "HobGob",
-                    ArmorClass = 17,
-                    DamageBonus = 1,
-                    DamageDice = Dice.D6,
-                    HitBonus = 2,
-                    HitPoint = 5
-                },
-                UnitDescription2 = new UnitDescriptionViewModel()
-                {
-                    Name = "HobGob",
-                    ArmorClass = 17,
-                    DamageBonus = 1,
-                    DamageDice = Dice.D6,
-                    HitBonus = 2,
-                    HitPoint = 5
-                },
-            };
-            return View(model);
+            return View();
         }
         
         [HttpPost]

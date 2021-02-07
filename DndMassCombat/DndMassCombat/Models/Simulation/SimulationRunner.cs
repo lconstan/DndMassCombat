@@ -88,6 +88,9 @@ namespace DndMassCombat.Models.Simulation
 
             for (int i = 0; i < attackingGroupUnitCount; i++)
             {
+                if (defendingUnitHitPointList.Count == 0)
+                    break;
+                
                 var defendingGroupUnitCount = defendingUnitHitPointList.Count;
                 var targetIndex = i % defendingGroupUnitCount;
 
