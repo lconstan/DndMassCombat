@@ -1,6 +1,7 @@
 ﻿@model DndMassCombat.Models.ViewModels.SimulationViewModel
 @{
     ViewData["Title"] = "D&D - Group combat";
+    ViewData["IsUnitHitpointReadonly"] = Model.Group1.UnitsHpJson != null || Model.Group2.UnitsHpJson != null; 
 }
 <div class="container">
     <h1 class="text-center">D&D - Group combat</h1>
