@@ -24,7 +24,7 @@ namespace DndMassCombat
         {
             services.AddSingleton<ISimulationRunner, SimulationRunner>();
             services.AddSingleton<IHackDetector, HackDetector>();
-            services.AddSingleton<IDice, Dice>();
+            services.AddSingleton<IDiceRoller, DiceRoller>();
             services.AddControllersWithViews();
         }
 

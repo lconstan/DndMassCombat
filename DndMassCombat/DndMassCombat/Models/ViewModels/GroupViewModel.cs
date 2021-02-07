@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace DndMassCombat.Models.ViewModels
 {
@@ -13,5 +14,7 @@ namespace DndMassCombat.Models.ViewModels
         [Range(0, 1_000_000)]
         [Required]
         public int UnitCount { get; set; }
+
+        public string UnitsHpJson { get; set; }
     }
 }

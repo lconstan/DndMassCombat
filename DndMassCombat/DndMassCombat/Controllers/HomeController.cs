@@ -37,7 +37,7 @@ namespace DndMassCombat.Controllers
                     Name = "HobGob",
                     ArmorClass = 17,
                     DamageBonus = 1,
-                    DamageDice = DamageDice.D6,
+                    DamageDice = Dice.D6,
                     HitBonus = 2,
                     HitPoint = 5
                 },
@@ -46,7 +46,7 @@ namespace DndMassCombat.Controllers
                     Name = "HobGob",
                     ArmorClass = 17,
                     DamageBonus = 1,
-                    DamageDice = DamageDice.D6,
+                    DamageDice = Dice.D6,
                     HitBonus = 2,
                     HitPoint = 5
                 },
@@ -71,7 +71,7 @@ namespace DndMassCombat.Controllers
             ModelState.Clear();
             simulationViewModel.UnitDescription1.IsAttacking = false;
             simulationViewModel.UnitDescription2.IsAttacking = false;
-            
+
             return View("Index", simulationViewModel);
         }
 

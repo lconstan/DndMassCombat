@@ -2,8 +2,8 @@
 
 namespace DndMassCombat.Models.Simulation
 {
-    public interface IDice
+    public interface IDiceRoller
     {
-        int Roll(DamageDice damageDice);
+        int Roll(Dice dice);
     }
 }

@@ -3,13 +3,13 @@ using DndMassCombat.Models.ViewModels;
 
 namespace DndMassCombat.Models.Simulation
 {
-    public class Dice : IDice
+    public class DiceRoller : IDiceRoller
     {
         private readonly Random _rand = new Random();
         
-        public int Roll(DamageDice damageDice)
+        public int Roll(Dice dice)
         {
-            var value = (int) damageDice;
+            var value = (int) dice;
             return _rand.Next() % value + 1;
         }
     }

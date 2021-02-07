@@ -1,6 +1,6 @@
 ﻿namespace DndMassCombat.Models.ViewModels
 {
-    public enum DamageDice
+    public enum Dice
     {
         D4 = 4,
         D6 = 6,
