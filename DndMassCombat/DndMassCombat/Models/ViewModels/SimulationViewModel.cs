@@ -7,5 +7,7 @@
         
         public GroupViewModel Group1 { get; set; }
         public GroupViewModel Group2 { get; set; }
+
+        public string Description { get; set; }
     }
 }

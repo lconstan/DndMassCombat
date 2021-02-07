@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Text.Json;
 using DndMassCombat.Models.ViewModels;
 
@@ -15,20 +17,31 @@ namespace DndMassCombat.Models.Simulation
 
         public void Simulate(SimulationViewModel simulationViewModel)
         {
+            var sb = new StringBuilder();
+            
             if (simulationViewModel.UnitDescription1.IsAttacking == true)
+            {
                 Simulate(simulationViewModel.UnitDescription1,
                     simulationViewModel.Group1,
                     simulationViewModel.UnitDescription2,
-                    simulationViewModel.Group2);
+                    simulationViewModel.Group2,
+                    sb);
+            }
             else
+            {
                 Simulate(simulationViewModel.UnitDescription2,
                     simulationViewModel.Group2,
                     simulationViewModel.UnitDescription1,
-                    simulationViewModel.Group1);
+                    simulationViewModel.Group1,
+                    sb);
+            }
+
+            sb.AppendLine("----------------");
+            simulationViewModel.Description += sb.ToString();
         }
 
         private void Simulate(UnitDescriptionViewModel attackingUnit, GroupViewModel attackingGroup,
-            UnitDescriptionViewModel defendingUnit, GroupViewModel defendingGroup)
+            UnitDescriptionViewModel defendingUnit, GroupViewModel defendingGroup, StringBuilder description)
         {
             var defendingUnitHitPointList = string.IsNullOrEmpty(defendingGroup.UnitsHpJson) 
                 ? new List<int>() 
@@ -36,19 +49,31 @@ namespace DndMassCombat.Models.Simulation
 
             UpdateDefendingListHitPoint(defendingUnit.HitPoint, defendingGroup.UnitCount, defendingUnitHitPointList);
 
-            var (totalDamage, totalKilledCount) = Attack(attackingUnit.HitBonus,
+            var attackResult = Attack(attackingUnit.HitBonus,
                 attackingUnit.DamageDice,
                 attackingUnit.DamageBonus,
                 attackingGroup.UnitCount,
                 defendingUnit.ArmorClass,
                 defendingUnitHitPointList);
 
-            defendingGroup.HitPoint -= totalDamage;
-            defendingGroup.UnitCount -= totalKilledCount;
+            defendingGroup.HitPoint -= attackResult.TotalDamage;
+            defendingGroup.UnitCount -= attackResult.TotalUnitKilled;
             defendingGroup.UnitsHpJson = JsonSerializer.Serialize(defendingUnitHitPointList);
+
+            description.AppendLine($"{attackingUnit.Name} attacks {defendingUnit.Name}");
+            if (attackResult.TotalDamage == 0)
+            {
+                description.AppendLine("All missed!");
+            }
+            else
+            {
+                description.AppendLine($"Total damage: {attackResult.TotalDamage}");
+                description.AppendLine($"Total unit killed: {attackResult.TotalUnitKilled}");
+                description.AppendLine($"Total unit wounded: {attackResult.TotalUnitWounded}");
+            }
         }
 
-        private (int totalDamage, int unitKilledCount) Attack(
+        private AttackResult Attack(
             int attackingUnitHitBonus,
             Dice attackingUnitDamageDice,
             int attackingUnitDamageBonus,
@@ -56,8 +81,10 @@ namespace DndMassCombat.Models.Simulation
             int defendingUnitArmorClass,
             List<int> defendingUnitHitPointList)
         {
+            
             int totalDamage = 0;
             int totalKilledCount = 0;
+            int totalUnitWounded = 0;
 
             for (int i = 0; i < attackingGroupUnitCount; i++)
             {
@@ -82,7 +109,7 @@ namespace DndMassCombat.Models.Simulation
                         damage += damageRoll + attackingUnitDamageBonus;
                     } while (damageRoll == (int) attackingUnitDamageDice);
 
-                    ApplyDamage(defendingUnitHitPointList, damage, targetIndex, ref totalDamage, ref totalKilledCount);
+                    ApplyDamage(defendingUnitHitPointList, damage, targetIndex, ref totalDamage, ref totalKilledCount, ref totalUnitWounded);
                 }
                 else
                 {
@@ -92,19 +119,25 @@ namespace DndMassCombat.Models.Simulation
                         var damageRoll = _diceRoller.Roll(attackingUnitDamageDice);
                         var damageScore = damageRoll + attackingUnitDamageBonus;
 
-                        ApplyDamage(defendingUnitHitPointList, damageScore, targetIndex, ref totalDamage, ref totalKilledCount);
+                        ApplyDamage(defendingUnitHitPointList, damageScore, targetIndex, ref totalDamage, ref totalKilledCount, ref totalUnitWounded);
                     }
                 }
             }
 
-            return (totalDamage, totalKilledCount);
+            return new AttackResult
+            {
+                TotalDamage = totalDamage,
+                TotalUnitKilled = totalKilledCount,
+                TotalUnitWounded = totalUnitWounded
+            };
         }
 
         private static void ApplyDamage(List<int> defendingUnitHitPointList,
             int damageScore,
             int targetIndex,
             ref int totalDamage,
-            ref int totalKilledCount)
+            ref int totalKilledCount,
+            ref int totalUnitWounded)
         {
             totalDamage += damageScore;
             defendingUnitHitPointList[targetIndex] -= damageScore;
@@ -112,6 +145,10 @@ namespace DndMassCombat.Models.Simulation
             {
                 defendingUnitHitPointList.RemoveAt(targetIndex);
                 totalKilledCount++;
+            }
+            else
+            {
+                totalUnitWounded++;    
             }
         }
 
