@@ -202,3 +202,4 @@ namespace DndMassCombatTests
             Assert.AreEqual(null, _simulationModel.UnitDescription1.IsAttacking);
         }
     }
+}
