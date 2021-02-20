@@ -12,12 +12,15 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
-        
+
+    - name: Clean
+      run: dotnet clean DndMassCombat\DndMassCombat.sln --configuration Release && dotnet nuget locals all --clear
+
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore DndMassCombat\DndMassCombat.sln
       
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build DndMassCombat\DndMassCombat.sln --configuration Release --no-restore
       
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test DndMassCombat\DndMassCombatTests.sln\bin\**\*Tests.dll --no-build --no-restore --verbosity normal
