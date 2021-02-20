@@ -1,1 +1,3 @@
-# DndMassCOmbat
+# DndMassCombat
+
+Feel free to contribute!
