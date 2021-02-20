@@ -23,4 +23,4 @@ jobs:
       run: dotnet build DndMassCombat\DndMassCombat.sln --configuration Release --no-restore
       
     - name: Test
-      run: dotnet test DndMassCombat\DndMassCombatTests.sln\bin\**\*Tests.dll --no-build --no-restore --verbosity normal
+      run: dotnet test DndMassCombat\DndMassCombatTests\bin\**\*Tests.dll --no-build --no-restore --verbosity normal
