@@ -72,7 +72,7 @@ namespace DndMassCombatTests
         }
 
         [Test]
-        public void Test_Simulate_Attack_From_First_Group_With_Success_No_Deaths()
+        public void Test_Simulate_Attack_From_First_Group_No_Deaths()
         {
             _diceRoller.Setup(x => x.Roll(_damageDice1)).Returns(4);
             _diceRoller.Setup(x => x.Roll(Dice.D20)).Returns(18);
@@ -102,7 +102,7 @@ namespace DndMassCombatTests
         }
 
         [Test]
-        public void Test_Simulate_Attack_From_Second_Group_With_Success_No_Deaths()
+        public void Test_Simulate_Attack_From_Second_Group_No_Deaths()
         {
             _diceRoller.Setup(x => x.Roll(_damageDice2)).Returns(5);
             _diceRoller.Setup(x => x.Roll(Dice.D20)).Returns(18);
@@ -132,7 +132,7 @@ namespace DndMassCombatTests
         }
 
         [Test]
-        public void Test_Simulate_Attack_From_First_Group_With_Success_With_Deaths()
+        public void Test_Simulate_Attack_From_First_Group_With_Deaths()
         {
             // Only one unit will be killed
             int count = 0;
@@ -164,7 +164,7 @@ namespace DndMassCombatTests
         }
 
         [Test]
-        public void Test_Simulate_Attack_From_Second_Group_With_Success_With_Deaths()
+        public void Test_Simulate_Attack_From_Second_Group_With_Deaths()
         {
             // One unit will be killed, the second wounded
             int count = 0;
@@ -202,4 +202,3 @@ namespace DndMassCombatTests
             Assert.AreEqual(null, _simulationModel.UnitDescription1.IsAttacking);
         }
     }
-}
