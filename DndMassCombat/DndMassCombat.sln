@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DndMassCombat", "DndMassCombat\DndMassCombat.csproj", "{A942AD5D-E7C4-4922-928B-1F92BF071008}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DndMassCombatTests", "DndMassCombatTests\DndMassCombatTests.csproj", "{80C00501-7B47-4698-8320-976D478EFC01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{A942AD5D-E7C4-4922-928B-1F92BF071008}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A942AD5D-E7C4-4922-928B-1F92BF071008}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A942AD5D-E7C4-4922-928B-1F92BF071008}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80C00501-7B47-4698-8320-976D478EFC01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80C00501-7B47-4698-8320-976D478EFC01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80C00501-7B47-4698-8320-976D478EFC01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80C00501-7B47-4698-8320-976D478EFC01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
