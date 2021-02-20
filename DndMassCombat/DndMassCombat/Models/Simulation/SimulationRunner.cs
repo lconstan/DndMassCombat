@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Text.Json;
 using DndMassCombat.Models.ViewModels;
@@ -18,7 +18,7 @@ namespace DndMassCombat.Models.Simulation
         public void Simulate(SimulationViewModel simulationViewModel)
         {
             var sb = new StringBuilder();
-            
+
             if (simulationViewModel.UnitDescription1.IsAttacking == true)
             {
                 Simulate(simulationViewModel.UnitDescription1,
@@ -45,12 +45,13 @@ namespace DndMassCombat.Models.Simulation
         {
             if (defendingGroup.UnitCount == 0)
                 return;
-            
-            var defendingUnitHitPointList = string.IsNullOrEmpty(defendingGroup.UnitsHpJson) 
-                ? new List<int>() 
+
+            var defendingUnitHitPointList = string.IsNullOrEmpty(defendingGroup.UnitsHpJson)
+                ? new List<int>()
                 : JsonSerializer.Deserialize<List<int>>(defendingGroup.UnitsHpJson);
 
             UpdateDefendingListHitPoint(defendingUnit.HitPoint, defendingGroup.UnitCount, defendingUnitHitPointList);
+            var defendingUnitHitPointListInitial = new List<int>(defendingUnitHitPointList);
 
             var attackResult = Attack(attackingUnit.HitBonus,
                 attackingUnit.DamageDice,
@@ -60,9 +61,9 @@ namespace DndMassCombat.Models.Simulation
                 defendingUnitHitPointList);
 
             var totalDamageKilled = attackResult.TotalUnitKilled * defendingUnit.HitPoint;
-            var totalDamageWounded = defendingUnitHitPointList.Sum(hp => defendingUnit.HitPoint - hp);
+            var totalDamageWounded = GetWoundedScore(defendingUnitHitPointListInitial, defendingUnitHitPointList);
             var totalDamage = totalDamageKilled + totalDamageWounded;
- 
+
             defendingGroup.HitPoint -= totalDamage;
             defendingGroup.UnitCount -= attackResult.TotalUnitKilled;
             defendingGroup.UnitsHpJson = JsonSerializer.Serialize(defendingUnitHitPointList);
@@ -93,7 +94,7 @@ namespace DndMassCombat.Models.Simulation
             {
                 if (defendingUnitHitPointList.Count == 0)
                     break;
-                
+
                 var defendingGroupUnitCount = defendingUnitHitPointList.Count;
                 var targetIndex = i % defendingGroupUnitCount;
 
@@ -160,6 +161,19 @@ namespace DndMassCombat.Models.Simulation
                 var diff = defendingUnitHitPointList.Count - defendingGroupUnitCount;
                 defendingUnitHitPointList.RemoveRange(defendingUnitHitPointList.Count - diff, diff);
             }
+        }
+
+        private int GetWoundedScore(List<int> initialHitPoints, List<int> currentHitPoints)
+        {
+            var score = 0;
+            var minLength = Math.Min(initialHitPoints.Count, currentHitPoints.Count);
+
+            for (int i = 0; i < minLength; i++)
+            {
+                score += initialHitPoints[i] - currentHitPoints[i];
+            }
+
+            return score;
         }
     }
 }

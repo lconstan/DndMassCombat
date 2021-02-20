@@ -1,6 +1,9 @@
+using System.Collections.Generic;
+using System.Linq;
 using DndMassCombat.Models.Simulation;
 using DndMassCombat.Models.ViewModels;
 using Moq;
+using Newtonsoft.Json;
 using NUnit.Framework;
 
 namespace DndMassCombatTests
@@ -80,8 +83,12 @@ namespace DndMassCombatTests
 
             _simulationRunner.Simulate(_simulationModel);
 
+            int[] existingCollection = JsonConvert.DeserializeObject<int[]>(_simulationModel.Group2.UnitsHpJson);
+            var expectedCollection = Enumerable.Repeat(_hitPoint2 - 4 - _damageBonus1, _unitCount2);
             Assert.AreEqual(_unitCount2 * _hitPoint2 - _unitCount1 * (4 + _damageBonus1), _simulationModel.Group2.HitPoint);
             Assert.AreEqual(_unitCount2, _simulationModel.Group2.UnitCount);
+            CollectionAssert.AreEqual(expectedCollection, existingCollection);
+            
             Assert.AreEqual(_name2, _simulationModel.UnitDescription2.Name);
             Assert.AreEqual(_armorClass2, _simulationModel.UnitDescription2.ArmorClass);
             Assert.AreEqual(_damageBonus2, _simulationModel.UnitDescription2.DamageBonus);
@@ -92,6 +99,8 @@ namespace DndMassCombatTests
 
             Assert.AreEqual(_unitCount1 * _hitPoint1, _simulationModel.Group1.HitPoint);
             Assert.AreEqual(_unitCount1, _simulationModel.Group1.UnitCount);
+            Assert.IsNull(_simulationModel.Group1.UnitsHpJson);
+            
             Assert.AreEqual(_name1, _simulationModel.UnitDescription1.Name);
             Assert.AreEqual(_armorClass1, _simulationModel.UnitDescription1.ArmorClass);
             Assert.AreEqual(_damageBonus1, _simulationModel.UnitDescription1.DamageBonus);
@@ -112,6 +121,8 @@ namespace DndMassCombatTests
 
             Assert.AreEqual(_unitCount2 * _hitPoint2, _simulationModel.Group2.HitPoint);
             Assert.AreEqual(_unitCount2, _simulationModel.Group2.UnitCount);
+            Assert.IsNull(_simulationModel.Group2.UnitsHpJson);
+            
             Assert.AreEqual(_name2, _simulationModel.UnitDescription2.Name);
             Assert.AreEqual(_armorClass2, _simulationModel.UnitDescription2.ArmorClass);
             Assert.AreEqual(_damageBonus2, _simulationModel.UnitDescription2.DamageBonus);
@@ -120,8 +131,12 @@ namespace DndMassCombatTests
             Assert.AreEqual(_hitPoint2, _simulationModel.UnitDescription2.HitPoint);
             Assert.AreEqual(true, _simulationModel.UnitDescription2.IsAttacking);
 
+            int[] existingCollection = JsonConvert.DeserializeObject<int[]>(_simulationModel.Group1.UnitsHpJson);
+            var expectedCollection = Enumerable.Repeat(_hitPoint1 - 5 - _damageBonus2, _unitCount1);
             Assert.AreEqual(_unitCount1 * _hitPoint1 - _unitCount2 * (5 + _damageBonus2), _simulationModel.Group1.HitPoint);
             Assert.AreEqual(_unitCount1, _simulationModel.Group1.UnitCount);
+            CollectionAssert.AreEqual(expectedCollection, existingCollection);
+            
             Assert.AreEqual(_name1, _simulationModel.UnitDescription1.Name);
             Assert.AreEqual(_armorClass1, _simulationModel.UnitDescription1.ArmorClass);
             Assert.AreEqual(_damageBonus1, _simulationModel.UnitDescription1.DamageBonus);
@@ -142,8 +157,12 @@ namespace DndMassCombatTests
 
             _simulationRunner.Simulate(_simulationModel);
 
+            int[] existingCollection = JsonConvert.DeserializeObject<int[]>(_simulationModel.Group2.UnitsHpJson);
+            var expectedCollection = Enumerable.Repeat(_hitPoint2, _unitCount2 - 1);
             Assert.AreEqual(_unitCount2 * _hitPoint2 - _hitPoint2, _simulationModel.Group2.HitPoint); // Single unit killed
             Assert.AreEqual(_unitCount2 - 1, _simulationModel.Group2.UnitCount);
+            CollectionAssert.AreEqual(expectedCollection, existingCollection);
+            
             Assert.AreEqual(_name2, _simulationModel.UnitDescription2.Name);
             Assert.AreEqual(_armorClass2, _simulationModel.UnitDescription2.ArmorClass);
             Assert.AreEqual(_damageBonus2, _simulationModel.UnitDescription2.DamageBonus);
@@ -154,6 +173,8 @@ namespace DndMassCombatTests
 
             Assert.AreEqual(_unitCount1 * _hitPoint1, _simulationModel.Group1.HitPoint);
             Assert.AreEqual(_unitCount1, _simulationModel.Group1.UnitCount);
+            Assert.IsNull(_simulationModel.Group1.UnitsHpJson);
+            
             Assert.AreEqual(_name1, _simulationModel.UnitDescription1.Name);
             Assert.AreEqual(_armorClass1, _simulationModel.UnitDescription1.ArmorClass);
             Assert.AreEqual(_damageBonus1, _simulationModel.UnitDescription1.DamageBonus);
@@ -183,6 +204,8 @@ namespace DndMassCombatTests
 
             Assert.AreEqual(_unitCount2 * _hitPoint2, _simulationModel.Group2.HitPoint);
             Assert.AreEqual(_unitCount2, _simulationModel.Group2.UnitCount);
+            Assert.IsNull(_simulationModel.Group2.UnitsHpJson);
+            
             Assert.AreEqual(_name2, _simulationModel.UnitDescription2.Name);
             Assert.AreEqual(_armorClass2, _simulationModel.UnitDescription2.ArmorClass);
             Assert.AreEqual(_damageBonus2, _simulationModel.UnitDescription2.DamageBonus);
@@ -191,8 +214,180 @@ namespace DndMassCombatTests
             Assert.AreEqual(_hitPoint2, _simulationModel.UnitDescription2.HitPoint);
             Assert.AreEqual(true, _simulationModel.UnitDescription2.IsAttacking);
 
+            int[] existingCollection = JsonConvert.DeserializeObject<int[]>(_simulationModel.Group1.UnitsHpJson);
+            List<int> expectedCollection = Enumerable.Repeat(_hitPoint1, _unitCount1 - 1).ToList();
+            expectedCollection[1] = _hitPoint1 -  2 - _damageBonus2;
             Assert.AreEqual(_unitCount1 * _hitPoint1 - _hitPoint1 - 2 - _damageBonus2, _simulationModel.Group1.HitPoint);
             Assert.AreEqual(_unitCount1 - 1, _simulationModel.Group1.UnitCount);
+            CollectionAssert.AreEqual(expectedCollection, existingCollection);
+            
+            Assert.AreEqual(_name1, _simulationModel.UnitDescription1.Name);
+            Assert.AreEqual(_armorClass1, _simulationModel.UnitDescription1.ArmorClass);
+            Assert.AreEqual(_damageBonus1, _simulationModel.UnitDescription1.DamageBonus);
+            Assert.AreEqual(_damageDice1, _simulationModel.UnitDescription1.DamageDice);
+            Assert.AreEqual(_hitBonus1, _simulationModel.UnitDescription1.HitBonus);
+            Assert.AreEqual(_hitPoint1, _simulationModel.UnitDescription1.HitPoint);
+            Assert.AreEqual(null, _simulationModel.UnitDescription1.IsAttacking);
+        }
+
+        [TestCase(true)]
+        [TestCase(false)]
+        public void Test_Fumble(bool isFirstGroupAttacking)
+        {
+            _simulationModel.UnitDescription1.HitBonus = int.MaxValue;
+            _simulationModel.UnitDescription2.HitBonus = int.MaxValue;
+
+            _diceRoller.Setup(x => x.Roll(Dice.D20)).Returns(1);
+
+            _simulationModel.UnitDescription1.IsAttacking = isFirstGroupAttacking;
+            _simulationModel.UnitDescription2.IsAttacking = !isFirstGroupAttacking;
+
+            _simulationRunner.Simulate(_simulationModel);
+
+            Assert.AreEqual(_unitCount2 * _hitPoint2, _simulationModel.Group2.HitPoint);
+            Assert.AreEqual(_unitCount2, _simulationModel.Group2.UnitCount);
+            Assert.AreEqual(_name2, _simulationModel.UnitDescription2.Name);
+            Assert.AreEqual(_armorClass2, _simulationModel.UnitDescription2.ArmorClass);
+            Assert.AreEqual(_damageBonus2, _simulationModel.UnitDescription2.DamageBonus);
+            Assert.AreEqual(_damageDice2, _simulationModel.UnitDescription2.DamageDice);
+            Assert.AreEqual(int.MaxValue, _simulationModel.UnitDescription2.HitBonus);
+            Assert.AreEqual(_hitPoint2, _simulationModel.UnitDescription2.HitPoint);
+            Assert.AreEqual(!isFirstGroupAttacking, _simulationModel.UnitDescription2.IsAttacking);
+
+            Assert.AreEqual(_unitCount1 * _hitPoint1, _simulationModel.Group1.HitPoint);
+            Assert.AreEqual(_unitCount1, _simulationModel.Group1.UnitCount);
+            Assert.AreEqual(_name1, _simulationModel.UnitDescription1.Name);
+            Assert.AreEqual(_armorClass1, _simulationModel.UnitDescription1.ArmorClass);
+            Assert.AreEqual(_damageBonus1, _simulationModel.UnitDescription1.DamageBonus);
+            Assert.AreEqual(_damageDice1, _simulationModel.UnitDescription1.DamageDice);
+            Assert.AreEqual(int.MaxValue, _simulationModel.UnitDescription1.HitBonus);
+            Assert.AreEqual(_hitPoint1, _simulationModel.UnitDescription1.HitPoint);
+            Assert.AreEqual(isFirstGroupAttacking, _simulationModel.UnitDescription1.IsAttacking);
+        }
+
+        [Test]
+        public void Test_Critic()
+        {
+            int count = 0;
+            _simulationModel.UnitDescription1.HitPoint = 1000;
+            _simulationModel.Group1.HitPoint = 1000 * _unitCount1;
+            _diceRoller.Setup(x => x.Roll(_damageDice2)).Returns<Dice>(_ =>
+            {
+                if (count == 1)
+                {
+                    count++;
+                    return (int) _damageDice2; // max value
+                }
+                
+                return 3;
+            });
+            // 1 attack successful
+            _diceRoller.Setup(x => x.Roll(Dice.D20)).Callback<Dice>(_ => count++).Returns(() => count == 1 ? 20 : 1);
+            _simulationModel.UnitDescription2.IsAttacking = true;
+
+            _simulationRunner.Simulate(_simulationModel);
+
+            Assert.AreEqual(_unitCount2 * _hitPoint2, _simulationModel.Group2.HitPoint);
+            Assert.AreEqual(_unitCount2, _simulationModel.Group2.UnitCount);
+            Assert.IsNull(_simulationModel.Group2.UnitsHpJson);
+            
+            Assert.AreEqual(_name2, _simulationModel.UnitDescription2.Name);
+            Assert.AreEqual(_armorClass2, _simulationModel.UnitDescription2.ArmorClass);
+            Assert.AreEqual(_damageBonus2, _simulationModel.UnitDescription2.DamageBonus);
+            Assert.AreEqual(_damageDice2, _simulationModel.UnitDescription2.DamageDice);
+            Assert.AreEqual(_hitBonus2, _simulationModel.UnitDescription2.HitBonus);
+            Assert.AreEqual(_hitPoint2, _simulationModel.UnitDescription2.HitPoint);
+            Assert.AreEqual(true, _simulationModel.UnitDescription2.IsAttacking);
+
+            int[] existingCollection = JsonConvert.DeserializeObject<int[]>(_simulationModel.Group1.UnitsHpJson);
+            List<int> expectedCollection = Enumerable.Repeat(1000, _unitCount1).ToList();
+            expectedCollection[0] = 1000 - ((int) _damageDice2 + _damageBonus2) * 2 - (3 + _damageBonus2);
+            Assert.AreEqual(_unitCount1 * 1000 - ((int) _damageDice2 + _damageBonus2)*2 - (3 + _damageBonus2), _simulationModel.Group1.HitPoint);
+            Assert.AreEqual(_unitCount1, _simulationModel.Group1.UnitCount);
+            CollectionAssert.AreEqual(expectedCollection, existingCollection);
+            
+            Assert.AreEqual(_name1, _simulationModel.UnitDescription1.Name);
+            Assert.AreEqual(_armorClass1, _simulationModel.UnitDescription1.ArmorClass);
+            Assert.AreEqual(_damageBonus1, _simulationModel.UnitDescription1.DamageBonus);
+            Assert.AreEqual(_damageDice1, _simulationModel.UnitDescription1.DamageDice);
+            Assert.AreEqual(_hitBonus1, _simulationModel.UnitDescription1.HitBonus);
+            Assert.AreEqual(1000, _simulationModel.UnitDescription1.HitPoint);
+            Assert.AreEqual(null, _simulationModel.UnitDescription1.IsAttacking);
+        }
+
+        [Test]
+        public void Successive_Attack_Take_Previous_State_Into_Account_No_Death()
+        {
+            int count = 0;
+            _diceRoller.Setup(x => x.Roll(_damageDice2)).Returns<Dice>(_ => 2);
+            // First attack successful
+            _diceRoller.Setup(x => x.Roll(Dice.D20)).Callback<Dice>(_ => count++).Returns(() => count == 1 ? 18 : 1);
+            _simulationModel.UnitDescription2.IsAttacking = true;
+
+            _simulationRunner.Simulate(_simulationModel);
+            count = 0;
+            _simulationRunner.Simulate(_simulationModel);
+
+            Assert.AreEqual(_unitCount2 * _hitPoint2, _simulationModel.Group2.HitPoint);
+            Assert.AreEqual(_unitCount2, _simulationModel.Group2.UnitCount);
+            Assert.IsNull(_simulationModel.Group2.UnitsHpJson);
+            
+            Assert.AreEqual(_name2, _simulationModel.UnitDescription2.Name);
+            Assert.AreEqual(_armorClass2, _simulationModel.UnitDescription2.ArmorClass);
+            Assert.AreEqual(_damageBonus2, _simulationModel.UnitDescription2.DamageBonus);
+            Assert.AreEqual(_damageDice2, _simulationModel.UnitDescription2.DamageDice);
+            Assert.AreEqual(_hitBonus2, _simulationModel.UnitDescription2.HitBonus);
+            Assert.AreEqual(_hitPoint2, _simulationModel.UnitDescription2.HitPoint);
+            Assert.AreEqual(true, _simulationModel.UnitDescription2.IsAttacking);
+
+            int[] existingCollection = JsonConvert.DeserializeObject<int[]>(_simulationModel.Group1.UnitsHpJson);
+            List<int> expectedCollection = Enumerable.Repeat(_hitPoint1, _unitCount1).ToList();
+            expectedCollection[0] = _hitPoint1 -  (2 + _damageBonus2) * 2;
+            Assert.AreEqual(_unitCount1 * _hitPoint1 - (2 + _damageBonus2) * 2, _simulationModel.Group1.HitPoint);
+            Assert.AreEqual(_unitCount1, _simulationModel.Group1.UnitCount);
+            CollectionAssert.AreEqual(expectedCollection, existingCollection);
+            
+            Assert.AreEqual(_name1, _simulationModel.UnitDescription1.Name);
+            Assert.AreEqual(_armorClass1, _simulationModel.UnitDescription1.ArmorClass);
+            Assert.AreEqual(_damageBonus1, _simulationModel.UnitDescription1.DamageBonus);
+            Assert.AreEqual(_damageDice1, _simulationModel.UnitDescription1.DamageDice);
+            Assert.AreEqual(_hitBonus1, _simulationModel.UnitDescription1.HitBonus);
+            Assert.AreEqual(_hitPoint1, _simulationModel.UnitDescription1.HitPoint);
+            Assert.AreEqual(null, _simulationModel.UnitDescription1.IsAttacking);
+        }
+
+        [Test]
+        public void Successive_Attack_Take_Previous_State_Into_Account_With_Death()
+        {
+            int count = 0;
+            _diceRoller.Setup(x => x.Roll(_damageDice2)).Returns<Dice>(_ => 2);
+            // First attack successful
+            _diceRoller.Setup(x => x.Roll(Dice.D20)).Callback<Dice>(_ => count++).Returns(() => count == 1 ? 18 : 1);
+            _simulationModel.UnitDescription2.IsAttacking = true;
+
+            _simulationRunner.Simulate(_simulationModel);
+            count = 0;
+            _diceRoller.Setup(x => x.Roll(_damageDice2)).Returns<Dice>(_ => 3);
+            _simulationRunner.Simulate(_simulationModel);
+
+            Assert.AreEqual(_unitCount2 * _hitPoint2, _simulationModel.Group2.HitPoint);
+            Assert.AreEqual(_unitCount2, _simulationModel.Group2.UnitCount);
+            Assert.IsNull(_simulationModel.Group2.UnitsHpJson);
+            
+            Assert.AreEqual(_name2, _simulationModel.UnitDescription2.Name);
+            Assert.AreEqual(_armorClass2, _simulationModel.UnitDescription2.ArmorClass);
+            Assert.AreEqual(_damageBonus2, _simulationModel.UnitDescription2.DamageBonus);
+            Assert.AreEqual(_damageDice2, _simulationModel.UnitDescription2.DamageDice);
+            Assert.AreEqual(_hitBonus2, _simulationModel.UnitDescription2.HitBonus);
+            Assert.AreEqual(_hitPoint2, _simulationModel.UnitDescription2.HitPoint);
+            Assert.AreEqual(true, _simulationModel.UnitDescription2.IsAttacking);
+
+            int[] existingCollection = JsonConvert.DeserializeObject<int[]>(_simulationModel.Group1.UnitsHpJson);
+            List<int> expectedCollection = Enumerable.Repeat(_hitPoint1, _unitCount1 - 1).ToList();
+            Assert.AreEqual(_unitCount1 * _hitPoint1 - _hitPoint1, _simulationModel.Group1.HitPoint);
+            Assert.AreEqual(_unitCount1 - 1, _simulationModel.Group1.UnitCount);
+            CollectionAssert.AreEqual(expectedCollection, existingCollection);
+            
             Assert.AreEqual(_name1, _simulationModel.UnitDescription1.Name);
             Assert.AreEqual(_armorClass1, _simulationModel.UnitDescription1.ArmorClass);
             Assert.AreEqual(_damageBonus1, _simulationModel.UnitDescription1.DamageBonus);
